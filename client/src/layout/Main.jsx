@@ -1,11 +1,14 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { Header, Footer } from "@/components/Shared";
 
 const Main = () => {
   return (
-    <div>
+    <>
+      <Header />
       <Outlet />
-    </div>
+      <Footer />
+    </>
   );
 };
 
