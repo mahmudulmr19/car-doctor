@@ -1,6 +1,6 @@
 import React from "react";
 import Container from "./Container";
-import logo from "@/assets/logof.svg";
+import logo from "@/assets/shared/logof.svg";
 import { footerSocialIcon } from "@/constant";
 import { useNavigate } from "react-router-dom";
 

@@ -1,6 +1,6 @@
 import React, { Fragment } from "react";
 import Container from "./Container";
-import logo from "@/assets/logo.svg";
+import logo from "@/assets/shared/logo.svg";
 import { headerMenu, mobileMenu } from "@/constant";
 import { Link, useNavigate } from "react-router-dom";
 import { HiOutlineShoppingBag, HiMagnifyingGlass } from "react-icons/hi2";
@@ -10,7 +10,7 @@ import { Popover, Transition } from "@headlessui/react";
 const Header = () => {
   const navigate = useNavigate();
   return (
-    <div className="shadow-sm">
+    <div className="shadow-sm bg-white sticky top-0 z-50">
       <Container className="flex items-center justify-between py-3">
         <div
           onClick={() => navigate("/")}
