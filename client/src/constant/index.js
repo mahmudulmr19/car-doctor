@@ -1,3 +1,9 @@
+import {
+  AiFillLinkedin,
+  AiOutlineGoogle,
+  AiOutlineInstagram,
+} from "react-icons/ai";
+import { MdFacebook } from "react-icons/md";
 export const headerMenu = [
   {
     id: "1",
@@ -35,5 +41,24 @@ export const mobileMenu = [
   {
     id: "4",
     name: "contact",
+  },
+];
+
+export const footerSocialIcon = [
+  {
+    name: "Google",
+    Icon: AiOutlineGoogle,
+  },
+  {
+    name: "Facebook",
+    Icon: MdFacebook,
+  },
+  {
+    name: "Instagram",
+    Icon: AiOutlineInstagram,
+  },
+  {
+    name: "LinkedIn",
+    Icon: AiFillLinkedin,
   },
 ];
