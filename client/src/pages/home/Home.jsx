@@ -1,4 +1,4 @@
-import { AboutUs, Banner, Service } from "@//components/home";
+import { AboutUs, Banner, Location, Service } from "@//components/home";
 import React from "react";
 
 const Home = () => {
@@ -7,6 +7,7 @@ const Home = () => {
       <Banner />
       <AboutUs />
       <Service />
+      <Location />
     </div>
   );
 };
