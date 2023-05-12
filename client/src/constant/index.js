@@ -14,6 +14,9 @@ import product3 from "../assets/images/products/3.png";
 import product4 from "../assets/images/products/4.png";
 import product5 from "../assets/images/products/5.png";
 import product6 from "../assets/images/products/6.png";
+import team1 from "../assets/images/team/1.jpg";
+import team2 from "../assets/images/team/2.jpg";
+import team3 from "../assets/images/team/3.jpg";
 export const headerMenu = [
   {
     id: "1",
@@ -316,5 +319,23 @@ export const popularProduct = [
     image: product4,
     name: "Cools Led Light",
     price: "20.00",
+  },
+];
+
+export const teams = [
+  {
+    title: "Car Engine Plug",
+    subtitle: "Engine Expert",
+    image: team1,
+  },
+  {
+    title: "Car Engine Plug",
+    subtitle: "Engine Expert",
+    image: team2,
+  },
+  {
+    title: "Car Engine Plug",
+    subtitle: "Engine Expert",
+    image: team3,
   },
 ];

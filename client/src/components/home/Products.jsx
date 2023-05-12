@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "../shared";
-import { popularProduct } from "@//constant";
+import { popularProduct } from "@/constant";
 import ProductItem from "./ProductItem";
 
 const Products = () => {
@@ -13,7 +13,7 @@ const Products = () => {
         <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-[#151515]">
           Browse Our Products
         </h2>
-        <p className="text-[#737373] max-w-screen-md w-full mx-auto">
+        <p className="text-[#737373] max-w-screen-md w-full mx-auto capitalize">
           the majority have suffered alteration in some form, by injected
           humour, or randomised words which don't look even slightly believable.
         </p>

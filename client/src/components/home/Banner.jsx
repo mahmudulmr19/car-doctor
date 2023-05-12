@@ -1,9 +1,9 @@
 import React from "react";
-import { Container } from "@//components/shared";
+import { Container } from "@/components/shared";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { carouselInfo } from "@//constant";
+import { carouselInfo } from "@/constant";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi2";
 
 const Banner = () => {
@@ -26,7 +26,7 @@ const Banner = () => {
                 <img
                   src={item.image}
                   alt={`carousel - ${index}`}
-                  className="h-[600px] border border-white w-full object-cover"
+                  className="h-[500px] border border-white w-full object-cover"
                 />
                 <div className="h-full w-full bg-gradient-to-r from-gray-900 to-transparent absolute top-0" />
               </div>
