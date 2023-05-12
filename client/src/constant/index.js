@@ -8,6 +8,12 @@ import carousel1 from "../assets/images/homeCarousel/1.jpg";
 import carousel2 from "../assets/images/homeCarousel/2.jpg";
 import carousel3 from "../assets/images/homeCarousel/3.jpg";
 import carousel4 from "../assets/images/homeCarousel/4.jpg";
+import product1 from "../assets/images/products/1.png";
+import product2 from "../assets/images/products/2.png";
+import product3 from "../assets/images/products/3.png";
+import product4 from "../assets/images/products/4.png";
+import product5 from "../assets/images/products/5.png";
+import product6 from "../assets/images/products/6.png";
 export const headerMenu = [
   {
     id: "1",
@@ -270,5 +276,45 @@ export const carouselInfo = [
   },
   {
     image: carousel4,
+  },
+];
+
+export const popularProduct = [
+  {
+    id: "2bf3cc7b0624",
+    image: product6,
+    name: "Car Engine Plug",
+    price: "20.00",
+  },
+
+  {
+    id: "a25332d7bf05",
+    image: product3,
+    name: "Car Air Filter",
+    price: "20.00",
+  },
+  {
+    id: "a80a456d",
+    image: product1,
+    name: "Cools Led Light",
+    price: "20.00",
+  },
+  {
+    id: "769f154e1f68",
+    image: product2,
+    name: "Cools Led Light",
+    price: "20.00",
+  },
+  {
+    id: "23b58db4",
+    image: product5,
+    name: "Cools Led Light",
+    price: "20.00",
+  },
+  {
+    id: "5da6cbea",
+    image: product4,
+    name: "Cools Led Light",
+    price: "20.00",
   },
 ];

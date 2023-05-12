@@ -1,4 +1,5 @@
-import { AboutUs, Banner, Location, Service } from "@//components/home";
+// prettier-ignore
+import { AboutUs, Banner, Location, Products, Service } from "@//components/home";
 import React from "react";
 
 const Home = () => {
@@ -8,6 +9,7 @@ const Home = () => {
       <AboutUs />
       <Service />
       <Location />
+      <Products />
     </div>
   );
 };
