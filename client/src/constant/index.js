@@ -17,6 +17,11 @@ import product6 from "../assets/images/products/6.png";
 import team1 from "../assets/images/team/1.jpg";
 import team2 from "../assets/images/team/2.jpg";
 import team3 from "../assets/images/team/3.jpg";
+import group from "../assets/icons/group.svg";
+import support from "../assets/icons/person.svg";
+import Wrench from "../assets/icons/Wrench.svg";
+import check from "../assets/icons/check.svg";
+import delivery from "../assets/icons/delivery.svg";
 export const headerMenu = [
   {
     id: "1",
@@ -337,5 +342,29 @@ export const teams = [
     title: "Car Engine Plug",
     subtitle: "Engine Expert",
     image: team3,
+  },
+];
+
+export const features = [
+  {
+    title: "Expert Team",
+    image: group,
+  },
+
+  {
+    title: "24/7 Support",
+    image: support,
+  },
+  {
+    title: "Best Equipment",
+    image: Wrench,
+  },
+  {
+    title: "100% Guranty",
+    image: check,
+  },
+  {
+    title: "Timely Delivery",
+    image: delivery,
   },
 ];
