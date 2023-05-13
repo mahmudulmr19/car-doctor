@@ -5,3 +5,4 @@ export { default as Location } from "./Location";
 export { default as Products } from "./Products";
 export { default as Team } from "./Team";
 export { default as Features } from "./Features";
+export { default as Testimonial } from "./Testimonial";

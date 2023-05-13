@@ -10,7 +10,6 @@ const Banner = () => {
   const slider = React.useRef(null);
   const settings = {
     infinite: true,
-
     speed: 500,
     slidesToShow: 1,
     slidesToScroll: 1,

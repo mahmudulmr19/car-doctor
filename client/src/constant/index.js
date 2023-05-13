@@ -22,6 +22,7 @@ import support from "../assets/icons/person.svg";
 import Wrench from "../assets/icons/Wrench.svg";
 import check from "../assets/icons/check.svg";
 import delivery from "../assets/icons/delivery.svg";
+import person from "../assets/images/testimonial/person.png";
 export const headerMenu = [
   {
     id: "1",
@@ -366,5 +367,36 @@ export const features = [
   {
     title: "Timely Delivery",
     image: delivery,
+  },
+];
+
+export const reviews = [
+  {
+    name: "Awlad Hossain",
+    occupation: "Businessman",
+    review:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. ",
+    image: person,
+  },
+  {
+    name: "Awlad Hossain",
+    occupation: "Businessman",
+    review:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. ",
+    image: person,
+  },
+  {
+    name: "Awlad Hossain",
+    occupation: "Businessman",
+    review:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. ",
+    image: person,
+  },
+  {
+    name: "Awlad Hossain",
+    occupation: "Businessman",
+    review:
+      "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. ",
+    image: person,
   },
 ];

@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "../shared";
-import { features } from "@//constant";
+import { features } from "@/constant";
 
 const Features = () => {
   return (
