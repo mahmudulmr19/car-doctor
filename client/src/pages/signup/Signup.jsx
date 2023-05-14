@@ -2,16 +2,61 @@ import { Container } from "@/components/shared";
 import React, { useState } from "react";
 import HeroLogin from "@/assets/images/login/login.svg";
 import { Input } from "@/components/auth";
-import { Link } from "react-router-dom";
-import { AiFillApple, AiFillGithub, AiOutlineGoogle } from "react-icons/ai";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { AiFillGithub, AiOutlineGoogle } from "react-icons/ai";
+import {
+  FacebookAuthProvider,
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from "firebase/auth";
+import { auth } from "@//config/Firebase";
+import { MdFacebook } from "react-icons/md";
 const Signup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  const location = useLocation();
+  const from = location?.state?.pathName || "/";
+  const navigate = useNavigate();
   const handleSignup = (e) => {
     e.preventDefault();
+    createUserWithEmailAndPassword(auth, email, password).then(
+      (UserCredential) => {
+        const user = UserCredential.user;
+        updateProfile(user, {
+          displayName: name,
+          photoURL: null,
+        }).then(() => {
+          navigate(from);
+        });
+      }
+    );
   };
+
+  const handleGoogle = () => {
+    const provider = new GoogleAuthProvider();
+    signInWithPopup(auth, provider).then(() => {
+      navigate(from);
+    });
+  };
+
+  const handleFacebook = () => {
+    const provider = new FacebookAuthProvider();
+    signInWithPopup(auth, provider).then(() => {
+      navigate(from);
+    });
+  };
+
+  const handleGithub = () => {
+    const provider = new GithubAuthProvider();
+    signInWithPopup(auth, provider).then(() => {
+      navigate(from);
+    });
+  };
+
   return (
     <Container className="my-10 py-10">
       <div className="lg:flex lg:items-center lg:justify-between">
@@ -62,9 +107,18 @@ const Signup = () => {
           <div className="text-center mt-5 space-y-2.5">
             <h5 className="text-[#444444] text-lg">Or Sign Up with</h5>
             <div className="flex items-center justify-center gap-3">
-              <AiOutlineGoogle className="w-10 h-10 p-2.5 bg-[#F5F5F8] rounded-full text-black cursor-pointer text-xl" />
-              <AiFillApple className="w-10 h-10 p-2.5 bg-[#F5F5F8] rounded-full text-black cursor-pointer text-xl" />
-              <AiFillGithub className="w-10 h-10 p-2.5 bg-[#F5F5F8] rounded-full text-black cursor-pointer text-xl" />
+              <AiOutlineGoogle
+                onClick={handleGoogle}
+                className="w-10 h-10 p-2.5 bg-[#F5F5F8] rounded-full text-black cursor-pointer text-xl"
+              />
+              <MdFacebook
+                onClick={handleFacebook}
+                className="w-10 h-10 p-2.5 bg-[#F5F5F8] rounded-full text-black cursor-pointer text-xl"
+              />
+              <AiFillGithub
+                onClick={handleGithub}
+                className="w-10 h-10 p-2.5 bg-[#F5F5F8] rounded-full text-black cursor-pointer text-xl"
+              />
             </div>
             <h4 className="text-[#737373] text-lg font-medium">
               Already have an account?{" "}
