@@ -12,7 +12,7 @@ import {
   signInWithPopup,
   updateProfile,
 } from "firebase/auth";
-import { auth } from "@//config/Firebase";
+import { auth } from "@/config/Firebase";
 import { MdFacebook } from "react-icons/md";
 const Signup = () => {
   const [name, setName] = useState("");
