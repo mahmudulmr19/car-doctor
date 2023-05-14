@@ -1,6 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Main } from "@/layout";
-import { Home } from "@/pages";
+import { Home, Signup } from "@/pages";
 
 const router = createBrowserRouter([
   {
@@ -10,6 +10,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/signup",
+        element: <Signup />,
       },
     ],
   },
