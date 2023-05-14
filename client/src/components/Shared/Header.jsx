@@ -24,7 +24,7 @@ const Header = () => {
         <div className="hidden lg:flex lg:items-center lg:gap-10 lg:ml-6">
           {headerMenu.map((item) => (
             <Link
-              to={item.name}
+              to={item.name == "home" ? "/" : item.name}
               key={item.id}
               className="capitalize text-base text-[#444444] font-medium"
             >

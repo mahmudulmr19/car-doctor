@@ -13,7 +13,9 @@ import {
   signInWithPopup,
 } from "firebase/auth";
 import { auth } from "@/config/Firebase";
+import { useTitle } from "@/hooks";
 const Login = () => {
+  useTitle("Login");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();

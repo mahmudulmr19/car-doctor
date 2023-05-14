@@ -14,7 +14,9 @@ import {
 } from "firebase/auth";
 import { auth } from "@/config/Firebase";
 import { MdFacebook } from "react-icons/md";
+import { useTitle } from "@/hooks";
 const Signup = () => {
+  useTitle("Signup");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
