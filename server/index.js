@@ -73,7 +73,7 @@ app.delete("/api/v1/orders/:id", async (req, res) => {
   const id = req.params.id;
   const query = { _id: new ObjectId(id) };
   // prettier-ignore
-  const result = await client.db(CarDoctor).collection("orders").deleteOne(query)
+  const result = await client.db("CarDoctor").collection("orders").deleteOne(query)
   res.send(result);
 });
 

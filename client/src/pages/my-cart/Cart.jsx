@@ -4,6 +4,7 @@ import { Container } from "@/components/Shared";
 import checkout from "@/assets/images/checkout/checkout.png";
 import { useTitle } from "@/hooks";
 import { RiDeleteBinLine } from "react-icons/ri";
+import Swal from "sweetalert2";
 
 const Cart = () => {
   const { currentUser } = useContext(AuthContext);
@@ -13,7 +14,26 @@ const Cart = () => {
 
   const handleDelete = (itemId) => {
     const updatedData = data.filter((item) => item._id !== itemId);
-    const deleteData = async () => {};
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "question",
+      confirmButtonText: "Yes, Delete",
+      cancelButtonText: "Cancel",
+      showCancelButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://api-car-doctor.vercel.app/api/v1/orders/${itemId}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              setData(updatedData);
+            }
+          });
+      }
+    });
   };
 
   useEffect(() => {
@@ -65,13 +85,13 @@ const Cart = () => {
               <tbody className="text-gray-600 text-sm font-light">
                 {data.map((item) => (
                   <tr
-                    key={item.id}
+                    key={item._id}
                     className="border-b border-gray-200 hover:bg-gray-100"
                   >
                     <td className="py-3 px-6">
                       <img
                         src={item.img}
-                        alt={item.title}
+                        alt={item.service}
                         className="w-16 h-16 object-cover rounded-full"
                       />
                     </td>

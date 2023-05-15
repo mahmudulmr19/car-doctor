@@ -31,13 +31,16 @@ const Form = () => {
     };
 
     const handlePOST = async () => {
-      const response = await fetch("http://localhost:5000/api/v1/orders", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(order),
-      });
+      const response = await fetch(
+        "https://api-car-doctor.vercel.app/api/v1/orders",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(order),
+        }
+      );
       if (response.ok) {
         Swal.fire({
           title: "Success!",
