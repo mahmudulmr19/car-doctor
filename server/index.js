@@ -27,10 +27,15 @@ app.get("/api/v1/services/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const query = { _id: new ObjectId(id) };
-    const service = await client
-      .db("CarDoctor")
-      .collection("Services")
-      .findOne(query);
+    const option = {
+      projection: {
+        title: 1,
+        price: 1,
+        service_id: 1,
+      },
+    };
+    // prettier-ignore
+    const service = await client.db("CarDoctor").collection("Services").findOne(query, option);
     res.send(service);
   } catch (error) {
     res.status(404).send({ message: "Service not found" });
