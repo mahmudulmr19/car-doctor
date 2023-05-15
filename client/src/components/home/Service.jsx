@@ -1,9 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Container } from "../shared";
-import { services } from "@/constant";
 import { HiArrowRight } from "react-icons/hi2";
+import LazyLoad from "react-lazyload";
 
 const Service = () => {
+  const [services, setServices] = useState([]);
+  useEffect(() => {
+    const fetchService = async () => {
+      const response = await fetch(
+        "https://api-car-doctor.vercel.app/api/v1/services"
+      );
+      const data = await response.json();
+      setServices(data);
+    };
+
+    fetchService();
+  }, []);
+
   return (
     <Container className="mt-20">
       <div className="text-center space-y-2">
@@ -23,11 +36,13 @@ const Service = () => {
             key={item._id}
             className="border border-[#E8E8E8] rounded-lg p-5 shadow-sm"
           >
-            <img
-              src={item.img}
-              alt={item.title}
-              className="object-cover rounded-lg h-64 w-full"
-            />
+            <LazyLoad offset={0}>
+              <img
+                src={item.img}
+                alt={item.title}
+                className="object-cover rounded-lg h-64 w-full"
+              />
+            </LazyLoad>
             <h4 className="text-[#444444] font-bold text-lg md:text-xl mt-3">
               {item.title}
             </h4>
