@@ -21,7 +21,7 @@ const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const location = useLocation();
-  const from = location?.state?.pathName || "/";
+  const from = location.state?.from?.pathname || "/";
   const navigate = useNavigate();
   const handleSignup = (e) => {
     e.preventDefault();

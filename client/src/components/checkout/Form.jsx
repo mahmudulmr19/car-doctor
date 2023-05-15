@@ -1,8 +1,12 @@
+import { AuthContext } from "@//context/AuthProvider";
 import { useTitle } from "@//hooks";
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useContext } from "react";
+import { Navigate, useLoaderData, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Form = () => {
+  const { currentUser } = useContext(AuthContext);
+  const navigate = useNavigate();
   const data = useLoaderData();
   useTitle(`${data.title} Details`);
   const handleSubmit = (e) => {
@@ -21,6 +25,8 @@ const Form = () => {
       date,
       service: data.title,
       service_id: data.service_id,
+      img: data.img,
+      price: data.price,
       message,
     };
 
@@ -32,6 +38,18 @@ const Form = () => {
         },
         body: JSON.stringify(order),
       });
+      if (response.ok) {
+        Swal.fire({
+          title: "Success!",
+          text: "Order Successfully!",
+          icon: "success",
+          confirmButtonText: "Go to My Cart",
+        }).then((result) => {
+          if (result.isConfirmed) {
+            navigate("/my cart");
+          }
+        });
+      }
     };
     handlePOST();
   };
@@ -43,14 +61,16 @@ const Form = () => {
       >
         <input
           type="text"
-          required
+          defaultValue={currentUser?.displayName}
+          disabled
           name="name"
           placeholder="Your Name"
           className="bg-white col-span-2 sm:col-span-1 placeholder:text-[#A2A2A2] outline-none py-2.5 px-5 rounded-md border border-gray-200 shadow-sm focus:border-[#FF3811]"
         />
         <input
           type="email"
-          required
+          disabled
+          defaultValue={currentUser?.email}
           name="email"
           placeholder="Your Email"
           className="bg-white col-span-2 sm:col-span-1 placeholder:text-[#A2A2A2] outline-none py-2.5 px-5 rounded-md border border-gray-200 shadow-sm focus:border-[#FF3811]"
@@ -64,6 +84,7 @@ const Form = () => {
         />
         <input
           type="date"
+          defaultValue={new Date().toISOString().substr(0, 10)}
           required
           name="date"
           className="bg-white col-span-2 sm:col-span-1 placeholder:text-[#A2A2A2] outline-none py-2.5 px-5 rounded-md border border-gray-200 shadow-sm focus:border-[#FF3811]"

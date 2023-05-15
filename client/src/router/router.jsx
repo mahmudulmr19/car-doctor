@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Main } from "@/layout";
-import { Checkout, Home, Login, Signup, Notfound } from "@/pages";
+import { Checkout, Home, Login, Signup, Notfound, Cart } from "@/pages";
+import User from "./User";
 
 const router = createBrowserRouter([
   {
@@ -22,11 +23,23 @@ const router = createBrowserRouter([
       },
       {
         path: "checkout/:id",
-        element: <Checkout />,
+        element: (
+          <User>
+            <Checkout />,
+          </User>
+        ),
         loader: ({ params }) =>
           fetch(
             `https://api-car-doctor.vercel.app/api/v1/services/${params.id}`
           ),
+      },
+      {
+        path: "my cart",
+        element: (
+          <User>
+            <Cart />
+          </User>
+        ),
       },
     ],
   },
