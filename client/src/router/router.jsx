@@ -1,11 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import { Main } from "@/layout";
-import { Checkout, Home, Login, Signup } from "@/pages";
+import { Checkout, Home, Login, Signup, Notfound } from "@/pages";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main />,
+    errorElement: <Notfound />,
     children: [
       {
         path: "/",
