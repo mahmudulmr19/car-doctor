@@ -42,6 +42,17 @@ app.get("/api/v1/services/:id", async (req, res) => {
   }
 });
 
+app.post("/api/v1/orders", async (req, res) => {
+  const body = req.body;
+  // prettier-ignore
+  try {
+    const result = await client.db("CarDoctor").collection("orders").insertOne(body);
+    res.send(result);
+  } catch (error) {
+    res.send({message: "Some went wrong"})
+  }
+});
+
 // RUN THE SERVER
 client.connect().then(() => {
   app.listen(PORT, () => {

@@ -22,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "checkout/:id",
         element: <Checkout />,
+        loader: ({ params }) =>
+          fetch(
+            `https://api-car-doctor.vercel.app/api/v1/services/${params.id}`
+          ),
       },
     ],
   },

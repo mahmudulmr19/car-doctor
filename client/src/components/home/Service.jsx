@@ -2,9 +2,11 @@ import React, { useEffect, useState } from "react";
 import { Container } from "../shared";
 import { HiArrowRight } from "react-icons/hi2";
 import LazyLoad from "react-lazyload";
+import { useNavigate } from "react-router-dom";
 
 const Service = () => {
   const [services, setServices] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchService = async () => {
       const response = await fetch(
@@ -50,7 +52,10 @@ const Service = () => {
               <h3 className="font-semibold text-[#FF3811] md:text-lg">
                 Price : ${item.price}
               </h3>
-              <HiArrowRight className="text-[#FF3811] cursor-pointer font-bold text-lg" />
+              <HiArrowRight
+                onClick={() => navigate(`checkout/${item._id}`)}
+                className="text-[#FF3811] cursor-pointer font-bold text-lg"
+              />
             </div>
           </div>
         ))}
